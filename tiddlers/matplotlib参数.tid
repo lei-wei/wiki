@@ -1,0 +1,30 @@
+created: 20211229014017155
+creator: 胖虎
+modified: 20211229085957336
+modifier: 胖虎
+tags: code python
+title: matplotlib参数
+tmap.id: bdfde9fa-f7e9-44c5-b668-78008f4eb17f
+type: text/vnd.tiddlywiki
+
+官方网站：https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html?highlight=plot#matplotlib.pyplot.plot
+
+;线形：
+:`:`点线
+:`-.`点画线
+:`--`短划线
+:`-`实线
+
+```python
+>>> plot(x, y, 'go--', linewidth=2, markersize=12)
+>>> plot(x, y, color='green', marker='o', linestyle='dashed',
+...      linewidth=2, markersize=12)
+```
+
+`matplotlib`参数
+
+
+```py
+colorList = ['k', 'g', 'b', 'r']
+lineList = ['-', '--', '-.', ':']
+```

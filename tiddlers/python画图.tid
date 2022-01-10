@@ -1,0 +1,150 @@
+created: 20211228130658738
+creator: 胖虎
+modified: 20211229085957336
+modifier: 胖虎
+tags: code python 可视化
+title: python画图
+tmap.id: 78d4fbe7-963a-4f60-a69e-12a430f5b4a6
+type: text/vnd.tiddlywiki
+
+整段的，抽空再整理
+
+```python
+# mtsp问题画图
+import numpy as np
+
+import matplotlib.pyplot as plt
+# import random
+import math
+import os
+import sys
+
+
+os.chdir(sys.path[0])
+
+plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
+plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
+
+
+class Draw_tsp:
+    def __init__(self, coordinates, bestPathList):  # 初始化
+        self._coordinates = coordinates
+        self._bestPathList = bestPathList
+        self._res = 0
+        # self._randomPath
+
+    def __repr__(self):  # 展示对象
+        # print("------各个节点的坐标-----")
+        # print(self._coordinates)
+        # print("------最优路径-----")
+        # print(self._bestPath)
+        # print("------最优结果-----")
+        # print(self._res)
+        return str(self._res)
+
+    def __call__(self, mode='best'):
+        def show_info(mode_info, path_info):
+            print(mode_info)
+            print(path_info)
+
+        # 画图参数
+        ax = plt.gca()
+        ax.set_title("Best Path")
+        ax.set_xlabel('X axis')
+        ax.set_ylabel('Y_axis')
+        # 保存图片
+        # plt.savefig('Oliver 30 City PathGraph.png', dpi=500, bbox_inches='tight')
+
+        self.draw_point_and_index()
+        colorList = ['k', 'g',  'b','r','b']
+        for i in range(len(self._bestPathList)):
+            path = self._bestPathList[i]
+            self._draw_path(path, colorList[i])
+        # for path in self._bestPathList:
+        #     self._draw_path(path)
+
+        self.calc_res(self._bestPathList)
+        print('best_result: '+str(self._res))
+
+        plt.show()
+        plt.close()
+
+    def _draw_path(self, path, color):  # 路径
+        for i in range(len(path)-1):
+            m, n = path[i], path[i+1]  # 路径m->n
+            print(m, n)
+            plt.plot([self._coordinates[m][0], self._coordinates[n][0]], [
+                self._coordinates[m][1], self._coordinates[n][1]], color=color)
+        # plt.plot([self._coordinates[path[0]][0], self._coordinates[n][0]], [
+        #     self._coordinates[path[0]][1], self._coordinates[n][1]], 'b')
+
+    def draw_point_and_index(self):  # 标记点和索引
+        # 标记点
+        plt.plot([s[0] for s in self._coordinates], [s[1]
+                 for s in self._coordinates], 'ro')
+        # plt.plot(self._coordinates[:, 0],
+        #          self._coordinates[:, 1], 'ro')
+        # 标记点的序号
+        s = 1  # 标坐标时在点右上的偏移量
+        for i in range(len(self._coordinates)):
+            plt.text(self._coordinates[i][0]+s,
+                     self._coordinates[i][1]+s, str(i+1))
+
+    def calc_res(self, bestPathList):
+        def calc_distance(coor, index1, index2):
+            return math.sqrt(
+                math.pow(coor[index1][0]-coor[index2][0], 2)
+                + math.pow(coor[index1][1]-coor[index2][1], 2)
+            )
+        def calc_length(coor,path):            
+            lenth = 0
+            for i in range(len(path)-1):
+                lenth += calc_distance(self._coordinates, path[i], path[i+1])
+            return lenth
+        res=0
+        for pa in bestPathList:
+            res+=calc_length(self._coordinates,pa)
+        self._res = res
+
+
+# 读取数据
+def loadPathData(path='./resPath.txt'):
+    pathRes = []
+    with open(path, 'r') as f:
+        lines = f.readlines()
+        for line in lines:
+            s = line.split()
+            path = [int(ss) for ss in s]
+            pathRes.append(path)
+    return pathRes
+
+
+def loadCorrdData(path='tspDataSet/kroA100.tsp'):
+    coorRes = []
+    with open(path, 'r') as f:
+        lines = f.readlines()
+        for line in lines:
+            s = line.split()
+            if s[0].isdigit():
+                content = [int(s[1]), int(s[2])]
+                coorRes.append(content)
+    return coorRes
+
+
+if __name__ == "__main__":
+    # Oliver30City坐标
+    coordinates = [
+        [2, 99], [4, 50], [7, 64], [13, 40],
+        [18, 54], [18, 40], [22, 60], [24, 42],
+        [25, 62], [25, 38], [37, 84], [41, 94],
+        [41, 26], [44, 35], [45, 21], [54, 67],
+        [54, 62], [58, 35], [58, 69], [62, 32], [64, 60],
+        [68, 58], [71, 44], [71, 71], [74, 78], [82, 7],
+        [83, 46], [83, 69], [87, 76], [91, 38]]
+
+    coorList = loadCorrdData()
+    pathList = loadPathData()
+    ddd = Draw_tsp(coorList, pathList)
+    ddd()
+    print(ddd)
+```

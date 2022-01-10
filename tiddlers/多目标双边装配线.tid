@@ -1,0 +1,59 @@
+created: 20211206053944702
+creator: 胖虎
+modified: 20211206073356785
+modifier: 胖虎
+tags: TALBP
+title: 多目标双边装配线
+tmap.id: 58eee165-8507-4733-be93-d69837736350
+type: text/vnd.tiddlywiki
+
+!文献中的多目标整理
+
+[[Two-sided assembly line balancing to maximize work relatedness and slackness]]
+
+; relatedness 任务连续性
+:同一个位置的工作（如发动机部分的一系列工作）尽量由最少的人来完成，连续的任务（前续、后续工序）尽量由一个人来完成。
+
+* 衡量方法：以一个工位内工序的 连续子网络 数量来衡量
+
+* 缺陷：该衡量方法不全面，需要相同装夹或是使用相同工具等，都算是related task。
+
+;slackness 任务松弛时间
+:对称工位之间，连续工序的间隔时间，越大越好，松弛度，也即容错度。
+
+---
+
+[[基于精益成本的双边装配线平衡优化研究_孙昊]]
+
+; 人工成本优化
+: 每个工位只有一个工人，工人技能等级有差异，根据该工位上操作难度最高的任务确定，工人成本根据工作时间和技能等级来衡量
+
+$$
+\min w = \sum_{k=1}^{nw} \sum_{j=1}^{nm} \sum_{r=1}^{2} Z_{kjr} \cdot CT \cdot\max \{w_i |i \in I_{jr}\}
+$$
+其中，
+$$
+Z_{kjr}=\begin{cases}
+1 &\text{人员k分配在工作站对j的方位r}
+\\
+0 &\text{else}
+\end{cases}
+$$
+
+; 平滑指数优化
+: 评价各工位上的设备的均衡程度，以实现均衡化生产，提高稳定性。
+
+$$
+\min SI = \sqrt{\frac 1 S \sum_{j=1}^{nm} \sum_{r=1}^{2} {(L_{jr}-L_{max}  )}^2 }
+$$
+
+;装配线效率优化
+:也即利用率，工作时间与所有时间的比值
+
+$$
+\max LE=\frac{\sum_i t_i}{S \cdot CT}
+$$
+
+
+!多目标研究方法
+[[多目标研究方法]]

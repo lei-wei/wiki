@@ -1,0 +1,96 @@
+created: 20211205103013182
+creator: 胖虎
+modified: 20211229084458615
+modifier: 胖虎
+tags: About
+title: markup language语法
+tmap.id: 494fc3ce-0baf-4e37-ad85-be098167acee
+type: text/vnd.tiddlywiki
+
+! markup language
+
+
+> 这是一种标记语言，相比markdown的纯文本格式，这个在网页上会更强大。
+
+---
+
+!!标题
+
+```
+!一级标题
+!!二级标题
+!!!三级标题
+```
+!一级标题
+!!二级标题
+!!!三级标题
+
+---
+
+!!分割线
+```
+---
+```
+---
+
+!!简单格式化
+
+```
+The ''quick'' brown ~~flea~~ fox //jumps// over the `lazy` dog
+```
+
+The ''quick'' brown ~~flea~~ fox //jumps// over the `lazy` dog
+
+------
+
+!!定义
+
+```
+; definition
+:description
+```
+
+; definition
+:description
+
+------
+
+!!tiddler链接
+
+```
+点击前往[[About]]，前往[[首页|About]]
+```
+
+点击前往[[About]]，前往[[首页|About]]
+
+---
+
+!!图片
+
+```
+[img[Motovun Jack.jpg]]    tiddler内置图片
+[img[https://tiddlywiki.com/favicon.ico]]    导向图片链接
+[img[An explanatory tooltip|Motovun Jack.jpg]]    指定文字提示
+[img width=32 [Motovun Jack.jpg]]   设置图片大小
+
+示例：
+[img width=35 [我是胖虎|panghu.jpg]]
+[img width=168 [我是胖虎|panghu.jpg]]
+[img width=268 [我是胖虎|panghu.jpg]]
+[img width={{!!mywidth}} [我是胖虎|panghu.jpg]]
+```
+[img width=68 [我是胖虎|panghu.jpg]]
+[img width=168 [我是胖虎|panghu.jpg]]
+[img width=268 [我是胖虎|panghu.jpg]]
+[img width={{!!mywidth}} [我是胖虎|panghu.jpg]]
+
+------
+
+
+
+!More
+
+更多可查看
+[[TIDDLYWIKI CHEAT SHEET|http://www.personal.psu.edu/kkm11/files/Tiddlywiki%20Guide.pdf]]
+
+或是[[官网资料|https://tiddlywiki.com/]]

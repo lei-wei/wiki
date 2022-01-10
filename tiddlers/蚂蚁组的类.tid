@@ -1,0 +1,38 @@
+created: 20211229082100140
+creator: 胖虎
+modified: 20211229083102531
+modifier: 胖虎
+tags: 蚁群算法新代码框架cpp cpp
+title: 蚂蚁组的类
+tmap.id: 34a3fbae-b684-429e-9f9a-b0ecd47ed57e
+type: text/vnd.tiddlywiki
+
+!! 蚂蚁组的类
+
+```cpp
+
+/// <summary>
+/// 蚂蚁组，由NGroupSize的蚂蚁构成
+/// </summary>
+class AntGroup
+{
+public:
+    vector<Ant> ants;//组内蚂蚁成员
+    //vector<int> tabu;//总的禁忌表
+    int tabu[N_dim] ;//总的禁忌表
+    //vector<int> groupPath;//组的总路径，考虑该成（点+标记）
+    double fitness = INT_MAX;
+
+    void init();
+    AntGroup();
+    void updateLengthAndCom();//更新蚂蚁之间的选择属性
+    void selectNextMove(); //新移动一步
+    void calcFitness();
+    void moveOneStep(Ant* ant, int desIndex);
+    void moveAll();//遍历图，得到路径
+    void showDetail();
+    void foutDetail();
+private:
+
+};
+```

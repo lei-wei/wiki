@@ -1,0 +1,112 @@
+created: 20211205104024351
+creator: 胖虎
+modified: 20211229084458611
+modifier: 胖虎
+tags: About
+title: 上手教程
+tmap.id: 338affcd-75e6-423b-bd82-5ee0897d62ef
+type: text/vnd.tiddlywiki
+
+!开始使用
+* 下载：在[[官网|https://tiddlywiki.com/]]下载空文件`empty.html`，文件即软件，软件即文件，软件功能及里面的所有的记录文件都在一个html文件里。
+* 创建：点击加号创建new tiddler，即小片段的笔记
+* 相互连接：在文中使用`[[tiddler_name]]`语法即可链接到任意tiddler，点击即可跳转
+* 保存：点击保存，即可保存新版本的html文件。
+
+!创建contents目录
+* 运用tags和tiddler语言，制作内容列表大纲
+* 显示在侧边栏：创建一个名为contents的tiddler，标签写`$:/tags/SideBar`，保存即可
+* 侧边栏默认开启：进入`Control Pannel`，设置里面设置即可
+* 更改在侧边栏的位置：创建字段`field`，字段名称：`list-before`，字段内容`$:/core/ui/SideBar/Recent`，保存即可
+
+* 在Contents里显示所有的内容，按名称排序
+<<<
+```
+<<toc-selective-expandable 'Contents' sort[title]>>
+```
+<<<
+
+* 内容不显示序号
+<<<
+```
+<div class="tc-table-of-contents">
+    <<toc-selective-expandable 'Contents' sort[title]>>
+</div>
+```
+<<<
+
+!追踪任务，Todo列表
+* 准备工作，创建Todo和Completed两个tiddler来放待办可已完成，所有任务加tag`task`。
+* Todo里，筛选显示所有含有task标签且未完成的tiddler的标题
+<<<
+```
+<$list filter="[!has[draft.of]tag[task]!tag[done]sort[created]]">
+```
+<<<
+* 显示切换完成状态的符号框
+<<<
+```
+<$checkbox tag = "done">
+```
+<<<
+*内容仅显示标题，加上创建日期，且可点击跳转
+<<<
+```
+<$link to = {{!!title}}>
+    <$view field = "created" format = "date" />
+     -
+    <$view field = "title"/>
+</$link>
+```
+<<<
+* Todo内的完整代码
+<<<
+```
+<$list filter="[!has[draft.of]tag[task]!tag[done]sort[created]]">
+    <$checkbox tag = "done">
+    <$link to = {{!!title}}>
+        <$view field = "created" format = "date" />
+        -
+        <$view field = "title"/>
+    </$link>
+    </$checkbox>
+</$list>
+```
+<<<
+* 同理，Completed内的代码，区别仅是筛选已完成的任务，且显示时加上化纤
+<<<
+```
+<$list filter="[!has[draft.of]tag[task]tag[done]sort[created]]">
+    <$checkbox tag = "done">
+        ~~
+        <$link to = {{!!title}}>
+            <$view field = "title"/>
+        </$link>
+        ~~
+    </$checkbox>
+</$list>
+```
+<<<
+---
+
+!!运用todolist插件的方式
+
+;语法
+
+```
+<<todolist-ui caption:"" width:"" base:"">>
+```
+
+
+
+!Markup language语法
+
+详情查看[[markup language语法]]部分。
+
+
+
+! More
+
+更多可查看
+[[TIDDLYWIKI CHEAT SHEET|http://www.personal.psu.edu/kkm11/files/Tiddlywiki%20Guide.pdf]]，有些过时仅供参考，以[[官网资料|https://tiddlywiki.com/]]为准。
+

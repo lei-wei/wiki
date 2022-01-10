@@ -1,0 +1,24 @@
+created: 20211229090108672
+creator: 胖虎
+modified: 20211229090200521
+modifier: 胖虎
+tags: code cpp
+title: cpp计时
+tmap.id: a47ed98b-1a5e-4ab4-895a-f151c46bc474
+type: text/vnd.tiddlywiki
+
+! cpp计时
+
+`clock()`有毫秒级的精度，直接上例子
+
+```cpp
+#include<time.h>
+int main()
+{
+	time_t startTime, endTime;
+	startTime = clock();
+    func();//程序运行
+    endTime = clock();
+    cout << "运行时间：" << (endTime - startTime) / CLOCKS_PER_SEC << " s" << endl;
+}
+```

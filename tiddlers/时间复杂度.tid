@@ -1,0 +1,25 @@
+created: 20211207045435905
+creator: 胖虎
+modified: 20211207045435905
+modifier: 胖虎
+tags: 算法复杂度
+title: 时间复杂度
+tmap.id: 4d1e0579-6dc2-4b3a-a299-65ba544610fd
+type: text/vnd.tiddlywiki
+
+!! 时间复杂度：
+:假设各操作的运行时间为固定常数，统计算法运行的「计算操作的数量」 ，以代表算法运行所需时间；
+
+;不同时间复杂度直观展示：
+$$
+O(1)<O(\log(N))<O(N)<O(N^2)<O(2^N)
+$$
+
+[img width="666"[算法复杂度对比|https://raw.githubusercontent.com/lei-wei/pic_bed/main/2021/12/03-10-39-45-sffzddb.png]]
+
+;不同算法的复杂度统计
+
+| `O(1)` | `O(log N)` | `O(N)` | `N*O(log N)` | `O(N^2 )` | `O(N!)` |
+| ------ | ---------- | ------ | ------------ | --------- | ------- |
+|        | 快速排序       |        |              |           |         |
+|        |            |        |              |           |         |

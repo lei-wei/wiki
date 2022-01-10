@@ -1,0 +1,27 @@
+created: 20211207043419625
+creator: 胖虎
+modified: 20211229085946564
+modifier: 胖虎
+tags: Algorithm
+title: 数据结构
+tmap.id: 7b1e16f3-e168-43c2-a663-106271207d93
+type: text/vnd.tiddlywiki
+
+! 数据结构
+
+
+<<list-links "[tag[数据结构]]">>
+
+
+[img width="666"[https://raw.githubusercontent.com/lei-wei/pic_bed/main/2021/12/03-10-31-02-sjjg.png]]
+
+---
+{{数组}}
+---
+{{链表}}
+---
+{{栈}}
+---
+{{队列}}
+---
+

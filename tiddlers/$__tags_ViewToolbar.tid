@@ -1,7 +1,7 @@
-created: 20211203092139354
+created: 20220110112516257
 creator: 胖虎
-list: $:/core/ui/Buttons/edit $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/info $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/plugins/bimlas/locator/viewtemplate/open-in-sidebar $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/plugins/linonetwo/zx-script/ViewToolbarButton $:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/fold-bar $:/plugins/felixhayashi/tiddlymap/misc/quickConnectButton
-modified: 20211203092213588
+list: $:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/edit $:/plugins/kookma/favorites/ui/buttons/add-remove $:/plugins/Gk0Wk/page-toc/PageTOCButton $:/core/ui/Buttons/close $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/plugins/bimlas/locator/viewtemplate/open-in-sidebar $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/plugins/linonetwo/zx-script/ViewToolbarButton $:/plugins/tiddlywiki/qrcode/ViewToolbarButton $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/fold-bar $:/plugins/felixhayashi/tiddlymap/misc/quickConnectButton
+modified: 20220110112550495
 modifier: 胖虎
 title: $:/tags/ViewToolbar
 type: text/vnd.tiddlywiki

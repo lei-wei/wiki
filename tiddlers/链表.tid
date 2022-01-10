@@ -1,0 +1,37 @@
+created: 20211207044011581
+creator: 胖虎
+modified: 20211207044656813
+modifier: 胖虎
+tags: 数据结构
+title: 链表
+tmap.id: 7661cb68-23f3-4914-be51-5af847588d69
+type: text/vnd.tiddlywiki
+
+!! 链表`ListNode`
+
+:链表以节点为单位，每个节点都是独立对象，对象含有两个成员：值`val`和后续节点引用`next`，每个节点链接下一个节点，存储**内存非连续**。
+
+```cpp
+//Definition for singly-linked list.
+struct ListNode
+{
+    int val;
+    ListNode *nest;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int _val) : val(_val), next(NULL) {}
+    ListNode(int x, ListNode* next) : val(x), next(next) {}
+};
+```
+
+使用时，须实例化节点，并构建节点之间的引用指向。
+
+```cpp
+//实例化节点
+ListNode n1 = new ListNode(1);
+ListNode n2 = new ListNode(2);
+ListNode n3 = new ListNode(3);
+
+//构建引用指向
+n1.next = n2;
+n2.next = n3;
+```

@@ -1,0 +1,22 @@
+created: 20211215044056021
+creator: 胖虎
+modified: 20211229085917951
+modifier: 胖虎
+tags: 仿真项目记录
+title: sim talk
+tmap.id: 5162e9eb-5d61-432f-996e-a77f3d002292
+type: text/vnd.tiddlywiki
+
+函数定义方法
+
+```
+param v1,v2:integer->boolean //函数定义方法
+v1:=1
+v2*/:=2
+result:=v1/=v2	//返回值
+```
+
+;method自动触发
+* `Reset`重置仿真时自动触发
+* `Init`开始仿真最先执行这个
+* `EndSim`结束后触发

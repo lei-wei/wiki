@@ -1,0 +1,64 @@
+created: 20211229082620878
+creator: 胖虎
+modified: 20211229082958371
+modifier: 胖虎
+tags: 蚁群算法新代码框架cpp
+title: 轮盘赌选择
+tmap.id: f084f653-8b2d-4d3e-9f2b-12e64a805b18
+type: text/vnd.tiddlywiki
+
+!! 轮盘赌选择
+
+```cpp
+
+void AntGroup::selectNextMove()
+{
+	bool flag = true;
+	updateLengthAndCom();
+	//记录所有的可能性
+	vector< MoveCase>moveCases;
+	for (auto& ant : ants)
+	{
+		for (size_t i = 0; i < N_dim; i++)
+		{
+			if (tabu[i]==1)
+			{
+				moveCases.push_back(MoveCase(&ant, i));
+			}
+		}
+	}
+	double q = rand() / (double)RAND_MAX;
+	if (q <= QZERO)	//按先验知识转移（局部最优方案）
+	{
+		sort(moveCases.begin(), moveCases.end(), [](auto& c1, auto& c2) {
+			return c1.moveValue > c2.moveValue;
+		});
+		MoveCase& ca = moveCases.front();
+		moveOneStep(ca.pmoveAnt, ca.desIndex);//移动一步，并更新各种状态
+	}
+	else	//轮盘赌做选择
+	{		
+		double p = rand() / (double)RAND_MAX; //生成一个随机数,用来判断落在哪个区间段
+		double sum_trans_value = 0.0;
+		for (auto& ca : moveCases)
+		{
+			sum_trans_value += ca.moveValue;
+		}
+		for (auto& ca : moveCases)
+		{
+			ca.moveProb = ca.moveValue / sum_trans_value;
+			p -= ca.moveProb;
+			if (p < 0.00001)
+			{
+				flag = false;
+				moveOneStep(ca.pmoveAnt, ca.desIndex);//移动一步，并更新各种状态
+				break;
+			}
+		}
+		if (flag)
+		{
+			cout << "error" << endl;
+		}
+	}
+}
+```

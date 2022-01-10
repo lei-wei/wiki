@@ -1,0 +1,24 @@
+created: 20211205110634331
+creator: 胖虎
+modified: 20211205133346175
+modifier: 胖虎
+tags: Tasks
+title: Todo
+tmap.id: 9c950331-798c-45c2-b357-3fc00dd915c9
+type: text/vnd.tiddlywiki
+
+<$list filter="[!has[draft.of]tag[task]!tag[done]sort[created]]">
+
+<$checkbox tag = "done">
+<$link to = {{!!title}}>
+<$view field = "created" format = "date" />
+-
+<$view field = "title"/>
+</$link>
+</$checkbox>
+</$list>
+
+
+<<todolist-ui>>
+
+<<todolist-ui caption:"" width:"" base:"">>

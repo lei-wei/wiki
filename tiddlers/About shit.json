@@ -1,0 +1,13 @@
+[
+    {
+        "created": "20211203083023533",
+        "creator": "胖虎 ",
+        "text": "[[TiddlyWiki|https://tiddlywiki.com/]]，一个有趣的非线性网页记录工具，折腾了好久，[[教程|https://tw-cn.netlify.app/]]在这里，希望能够多写多思考。\n\n最常用的应该是这个[[notebook|https://nicolas.petton.fr/tw/notebook.html]]主题，可以在这里[[设置|$:/ControlPanel]]\n\n\n同时也做了一些插件的改进\n\n* markdown支持\n* 数学公式Katex支持 $$\\KaTeX$$\n*[[TodoList|$:/plugins/kookma/todolist]]支持，虽然没完全搞懂",
+        "title": "About shit",
+        "modified": "20220110112836712",
+        "tags": "Guide",
+        "modifier": "胖虎",
+        "type": "text/vnd.tiddlywiki",
+        "tmap.id": "3541391b-13dc-4339-8ae7-bf41db6c4c83"
+    }
+]

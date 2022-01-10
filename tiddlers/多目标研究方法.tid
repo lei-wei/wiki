@@ -1,0 +1,25 @@
+created: 20211206073423747
+creator: 胖虎
+modified: 20211206102943664
+modifier: 胖虎
+tags: 多目标双边装配线 多目标
+title: 多目标研究方法
+tmap.id: fa98199b-4c46-40ac-a7d5-8b621e5b47ed
+type: text/vnd.tiddlywiki
+
+;Pareto熵
+:待添加
+
+非支配排序遗传算法2（NSGA-II）
+
+* (1)提出了快速非支配排序算法；
+* (2)采用拥挤度和拥挤度比较算子；
+* (3)引入精英策略。
+
+[[帕累托最优]]
+
+<<reuse-tiddler "帕累托最优">>
+
+[[快速非支配排序]]
+
+<<reuse-tiddler "快速非支配排序">>

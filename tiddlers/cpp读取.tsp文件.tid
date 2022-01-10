@@ -1,0 +1,43 @@
+created: 20211229081348111
+creator: 胖虎
+modified: 20211229090523323
+modifier: 胖虎
+tags: 蚁群算法新代码框架cpp cpp tsp
+title: cpp读取.tsp文件
+tmap.id: 03c7474c-d922-4803-bd75-42ffcc7087aa
+type: text/vnd.tiddlywiki
+
+
+取巧，判断每行的第一个值是否为数字，只读取数字行
+
+!! cpp读取`.tsp`文件
+
+```cpp
+
+void Graph::loadData()
+{
+	string path = "tspDataSet/"+DATA_SET + ".tsp";
+	fstream f;
+	f.open(path, ios::in);
+	if (!f.is_open())
+	{
+		cout << RES_PATH << " 打开失败" << endl;
+	}
+	string lineStr;
+	while (getline(f, lineStr))
+	{
+		int index;
+		cout << lineStr << endl;
+
+		stringstream ss(lineStr);
+		if (ss >> index)
+		{
+			int x, y;
+			ss >> x >> y;
+			vector<int> temp = { x,y };
+			coordinate.push_back(temp);
+		}
+	}
+	f.close();
+}
+```

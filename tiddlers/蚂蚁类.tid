@@ -1,0 +1,28 @@
+created: 20211229082352786
+creator: 胖虎
+modified: 20211229083030844
+modifier: 胖虎
+tags: 蚁群算法新代码框架cpp
+title: 蚂蚁类
+tmap.id: 1583800f-1e4f-4f03-be27-71973785aeef
+type: text/vnd.tiddlywiki
+
+!! 蚂蚁类
+
+```cpp
+/// <summary>
+/// 蚂蚁
+/// </summary>
+class Ant
+{
+public:
+    int currentCity;
+    //int currentTourIndex;
+
+    vector<int> antPath;    //该蚂蚁的路径
+    double currLength = 0;  //当前移动距离
+    double com = 0;         //组内影响属性
+    void init();    //初始化所有值path+currPos
+    Ant();
+}
+```

@@ -1,0 +1,21 @@
+created: 20211207044228291
+creator: 胖虎
+modified: 20211207044831888
+modifier: 胖虎
+tags: 数据结构
+title: 队列
+tmap.id: f2654e83-c3b4-4fc9-bc5c-b8da29e530bf
+type: text/vnd.tiddlywiki
+
+!! 队列`Queue`
+
+:''先入先出''，入队`push()`出队`pop()`。
+
+常见用法：
+
+```cpp
+que.push(1); // 元素 1 入队
+que.push(2); // 元素 2 入队
+que.pop();   // 出队 -> 元素 1
+que.pop();   // 出队 -> 元素 2
+```

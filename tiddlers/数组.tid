@@ -1,0 +1,26 @@
+created: 20211207043655456
+creator: 胖虎
+modified: 20211207044643685
+modifier: 胖虎
+tags: 数据结构
+title: 数组
+tmap.id: 23f8ee8a-d9c8-4c65-842f-d8ee4415226a
+type: text/vnd.tiddlywiki
+
+
+!! 数组`array`
+
+:数组是将**相同元素**，**存储于连续空间**的数据结构，其**长度不可变**。
+
+```cpp
+// 初始化一个长度为 5 的数组 array
+int array[5];
+// 元素赋值
+array[0] = 2;
+array[1] = 3;
+array[2] = 1;
+array[3] = 0;
+array[4] = 2;
+```
+
+可变数组`vector`，基于数组和扩容机制实现。

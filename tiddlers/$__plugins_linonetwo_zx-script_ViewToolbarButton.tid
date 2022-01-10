@@ -1,8 +1,8 @@
 caption: {{$:/plugins/linonetwo/zx-script/zx-icon}} {{$:/plugins/linonetwo/zx-script/zx-button-caption}}
-created: 20211203092139353
+created: 20220110112516257
 creator: 胖虎
 description: Run tiddler as ZX Script
-modified: 20211203092139376
+modified: 20220110112516257
 modifier: 胖虎
 short-caption: zx script executor
 tags: $:/tags/ViewToolbar

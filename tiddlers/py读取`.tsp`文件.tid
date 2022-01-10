@@ -1,0 +1,24 @@
+created: 20211229090336921
+creator: 胖虎
+modified: 20211229090500936
+modifier: 胖虎
+tags: code python tsp
+title: py读取`.tsp`文件
+tmap.id: c8640c74-9a8d-4098-9e34-edd5a2c3388e
+type: text/vnd.tiddlywiki
+
+取巧，判断每行的第一个值是否为数字，只读取数字行
+
+
+```py
+def loadCorrdData(path='tspDataSet/kroA100.tsp'):
+    coorRes = []
+    with open(path, 'r') as f:
+        lines = f.readlines()
+        for line in lines:
+            s = line.split()
+            if s[0].isdigit():
+                content = [int(s[1]), int(s[2])]
+                coorRes.append(content)
+    return coorRes
+```

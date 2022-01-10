@@ -1,0 +1,35 @@
+created: 20211228075637927
+creator: 胖虎
+modified: 20211229085957336
+modifier: 胖虎
+tags: code cpp
+title: cpp写入txt
+tmap.id: a0165459-faa5-4053-bb0b-79dc9949e245
+type: text/vnd.tiddlywiki
+
+
+
+```cpp
+#include <fstream>
+
+using namespase std;
+
+const string RES_PATH = "./result.txt"
+
+void fout()
+{
+    //创建输入输出流对象，第一个参数是文件路径，第二个out是写入模式
+    fstream f;
+    //打开文件
+    f.open("RES_PATH", ios_base::out);
+    //判断文件是否打开
+    if (!f.is_open())
+    {
+        cout << RES_PATH << " 打开失败" << endl;
+    }
+    //写东西 
+    f << "这里是写入文件的内容";
+    //关闭文件
+    f.close();
+}
+```

@@ -1,0 +1,67 @@
+created: 20211206065415042
+creator: 胖虎
+modified: 20211206065507803
+modifier: 胖虎
+tags: 多目标双边装配线
+title: Two-sided assembly line balancing to maximize work relatedness and slackness
+tmap.id: c2923cf7-c3e4-446e-a0a3-2cd35c8bdfb5
+type: text/vnd.tiddlywiki
+
+! Two-sided assembly line balancing to maximize work relatedness and slackness
+
+
+!! 1. Introduction
+* 介绍双边装配线的概念，
+* 提出一种新的决策标准（目标），work relatedness and slackness，新指标会与旧指标冲突
+* 针对新特性指标，提出新的assignment procedure，但不会过多影响旧特性。
+
+!! 2. Two-ALB problem and decision criteria
+
+; relatedness 任务连续性
+:同一个位置的工作（如发动机部分的一系列工作）尽量由最少的人来完成，连续的任务（前续、后续工序）尽量由一个人来完成。
+
+* 衡量方法：以一个工位内工序的 连续子网络 数量来衡量
+
+* 缺陷：该衡量方法不全面，需要相同装夹或是使用相同工具等，都算是related task。
+
+;slackness 任务松弛时间
+:对称工位之间，连续工序的间隔时间，越大越好，松弛度，也即容错度。
+
+!! 3. 成组平衡方法（Group assignment procedure）
+
+!!!1. Grouping tasks罗列所有的组
+
+*遍历所有的组
+  **选择一个工序，将所有是其前续工序且未加工的，归为一个组
+  **遍历所有未加工工序即可得到所有组
+   **去除非法组：组内同时含有L和R属性工序
+*确定组的方位
+   **含有L或R的直接确定
+   **若为E，选能早加工的，若同时则选择负荷小的
+* 排序并检查是否符合约束
+    ** 组内排序
+    ** 超出cycletime的，剔除该组以及包含改组的组
+*去重
+    **  组内有子集的，去除子集。
+
+!!!2. 组的分配（Assignment of task groups）
+
+* 早加工
+* 少延迟
+* 多加工时间
+
+!!! 3. 总流程（Overall procedure）
+
+# 初始化，位置pos=1，工序合集U
+# 当前pos位置上，计算可行的所有的组，若无则to step5
+# 选择一个分配的组G
+# 分配G，更新pos的数据，U-=G
+# 若工序未分配完，则pos+=1，to step2，否则结束
+
+!! 4. 实验部分
+
+* 数据：标准数据集，兼顾TALBP-Ⅰ和Ⅱ两项
+* 对比方法：由于是启发式方法，和其他启发式方法比较
+* 策略：
+   ** 对比项目：NS，NM，IWR，IWS
+    **每个项目下：对比方法F（参数策略），本文方法（G），提升幅度improved rete（IR）

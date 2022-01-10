@@ -1,0 +1,29 @@
+created: 20211206080936119
+creator: 胖虎
+modified: 20211206083442139
+modifier: 胖虎
+tags: 多目标
+title: 帕累托最优
+tmap.id: 6b7b8f67-5841-488f-b5ab-50bd7b785f5a
+type: text/vnd.tiddlywiki
+
+
+;Pareto支配（Pareto Dominate）
+: 对于n个目标分量 $$f_i ( x ) , i = 1,2,... n, f_i(x), i=1...nf $$，有
+:* $$\forall i, f_i(X_a)\le f_i(X_b)$$
+:*and $$ \exist i, f_i(X_a)< f_i(X_b)$$
+:则称为支配
+
+
+;Pareto最优
+:只要一个解不被其他解支配，即帕累托最优，可以有多个帕累托最优
+
+;Pareto集（Pateto set）
+:一组解中任意两个解不存在支配关系，则为级
+
+;Pareto等级
+:#一组解中，非支配解集的等级定义为1
+:#将该解集从集合中删除，剩下的非支配解集的等级定义为2
+:#以此类推，得到所有解的Pareto等级
+
+[img [https://img-blog.csdn.net/20180928093456676?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNDM0NDMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70]]

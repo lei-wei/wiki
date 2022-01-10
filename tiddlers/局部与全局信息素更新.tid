@@ -1,0 +1,33 @@
+created: 20211229082932815
+creator: 胖虎
+modified: 20211229082932815
+modifier: 胖虎
+tags: 蚁群算法新代码框架cpp
+title: 局部与全局信息素更新
+tmap.id: b05ed4b6-d3f5-4d4b-a2f9-84944c41defc
+type: text/vnd.tiddlywiki
+
+
+!! 局部与全局信息素更新
+
+!!! 局部信息素更新
+
+```cpp
+void Graph::updateLocalTau(int pos1, int pos2)
+{
+	this->tau[pos1][pos2] *= (1 - RHO1);
+	this->tau[pos1][pos2] += RHO1 * (1. / (N_dim * LNN));
+	this->tau[pos2][pos1] = this->tau[pos1][pos2];
+}
+```
+
+!!! 全局信息素更新
+
+```cpp
+void Graph::updateGlobalTau(int pos1, int pos2, double length)
+{
+	this->tau[pos1][pos2] *= (1 - RHO);
+	this->tau[pos1][pos2] += RHO * (1. / length);
+	this->tau[pos2][pos1] = this->tau[pos1][pos2];
+}
+```

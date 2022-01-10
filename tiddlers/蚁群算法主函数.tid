@@ -1,0 +1,32 @@
+created: 20211229081915221
+creator: 胖虎
+modified: 20211229083018953
+modifier: 胖虎
+tags: 蚁群算法新代码框架cpp
+title: 蚁群算法主函数
+tmap.id: 8de9441c-1e38-4bd6-8a14-0ca2c242b7b5
+type: text/vnd.tiddlywiki
+
+!! 蚁群算法主函数
+图类仅在主函数中作为静态成员
+
+```cpp
+/// <summary>
+/// 蚂蚁群，由蚂蚁组构成
+/// </summary>
+class AntColony
+{
+private:
+    vector<AntGroup>antGroups;
+    AntGroup bestAntGroup;
+
+public:
+    static Graph G;
+    AntColony();
+    void construct_solution(); //路径构建
+    void update_pheromone();   //信息素更新
+    bool check_and_show_current_optimal(); //更新最优值则返回false，局部最优则返回true，更新当前最优解
+
+    void aca_go(int bad_time = 300);
+};
+```

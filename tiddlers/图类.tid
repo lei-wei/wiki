@@ -1,0 +1,38 @@
+created: 20211229082642517
+creator: 胖虎
+modified: 20211229083119137
+modifier: 胖虎
+tags: 蚁群算法新代码框架cpp cpp
+title: 图类
+tmap.id: b33ccee9-985b-40eb-8502-721cb579437e
+type: text/vnd.tiddlywiki
+
+!! 图类
+首先是图，包含全局的坐标、信息素、启发式函数等信息
+
+```cpp
+//图，初始化地点
+class Graph
+{
+public:
+    vector<vector<int>>coordinate;
+    Graph();//初始化
+
+    void loadData();
+    //void update_prob_matrix();//更新转移概率矩阵（未归一化）
+	//double getProb(int i, int j) { return prob_matrix[i][j]; };
+	double getDis(int i, int j) { return distance[i][j]; };
+	double getTau(int i, int j) { return tau[i][j]; };
+	double getVis(int i, int j) { return visible[i][j]; };
+
+    void update_tau_reduce();//挥发
+    void updateTauGlobal(int pos1,int pos2,double length);//新增信息素
+    void updateLocalTau(int pos1, int pos2);
+
+private:
+    double distance[N_dim][N_dim];
+    double tau[N_dim][N_dim];
+    double visible[N_dim][N_dim];
+    //double prob_matrix[N_dim][N_dim];
+};
+```
