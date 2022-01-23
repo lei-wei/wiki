@@ -139,6 +139,12 @@
 		<priority>0.5</priority>
 	</url>
 	<url>
+		<loc>https://onetwo.ren/wiki/#:cpp均值、方差、标准差</loc>
+		<lastmod>2022-01-17</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
 		<loc>https://onetwo.ren/wiki/#:cpp计时</loc>
 		<lastmod>2021-12-29</lastmod>
 		<changefreq>monthly</changefreq>
@@ -147,6 +153,12 @@
 	<url>
 		<loc>https://onetwo.ren/wiki/#:cpp读取.tsp文件</loc>
 		<lastmod>2021-12-29</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
+		<loc>https://onetwo.ren/wiki/#:draft</loc>
+		<lastmod>2022-01-11</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
@@ -200,6 +212,12 @@
 	<url>
 		<loc>https://onetwo.ren/wiki/#:python画图</loc>
 		<lastmod>2021-12-29</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
+		<loc>https://onetwo.ren/wiki/#:py处理，正则re</loc>
+		<lastmod>2022-01-11</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
