@@ -1,0 +1,21 @@
+created: 20220111134153407
+creator: 胖虎
+modified: 20220111134512193
+modifier: 胖虎
+tags: 未分类草稿
+title: py处理，正则re
+tmap.id: c78bf281-176f-4a75-a2c8-3585054f6405
+type: text/vnd.tiddlywiki
+
+;`re.findall`
+:找出所有符合的内容，返回列表
+
+```py
+text1 = r'![](https://cdn.jsdelivr.net/gh/lei-wei/pic_bed/img/202201111905244.jpg)'
+
+url = re.findall(r"!\[\]\((.+)\)", text1)
+
+resUrl = r'<img src="'+url[0]+'" width="573">'
+
+print(resUrl)
+```

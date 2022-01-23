@@ -1,0 +1,29 @@
+created: 20220117095512379
+creator: 胖虎
+modified: 20220117100046774
+modifier: 胖虎
+tags: 未分类草稿 code cpp
+title: cpp均值、方差、标准差
+tmap.id: 8e439f27-22fc-4e59-8f3d-a2897dae38d0
+type: text/vnd.tiddlywiki
+
+```cpp
+double standardDev(vector<double>res)
+{
+	//均值  
+	double sum = std::accumulate(std::begin(res), std::end(res), 0.0);
+	double resMean = sum / res.size();
+
+	//方差
+	double variance = 0;
+	for (auto& re : res)
+	{
+		variance += pow(re - resMean, 2);
+	}
+	variance /= res.size();
+
+	//标准差
+	double standardDev = sqrt(variance);
+	return standardDev;
+}
+```
