@@ -1,6 +1,6 @@
 created: 20211229014017155
 creator: 胖虎
-modified: 20211229085957336
+modified: 20220315025401399
 modifier: 胖虎
 tags: code python
 title: matplotlib参数
@@ -21,10 +21,39 @@ type: text/vnd.tiddlywiki
 ...      linewidth=2, markersize=12)
 ```
 
-`matplotlib`参数
-
+`matplotlib`线形和颜色参数
 
 ```py
 colorList = ['k', 'g', 'b', 'r']
 lineList = ['-', '--', '-.', ':']
 ```
+
+!! 画甘特图
+
+```py
+plt.barh(station_index+1, float(oper.pt),
+            left=float(oper.st), edgecolor='black', color='lightgray')
+plt.text(y=station_index+0.8, x=float(oper.st) +
+            float(oper.pt)/2-3, s=oper.index, fontsize=7)
+
+```
+
+!! 设置大小及清晰度
+
+
+```py
+plt.figure(figsize=(8, 4), dpi=300)	#size单位为英寸
+```
+
+
+
+!! 一些实例
+
+[[TALBP画甘特图]]
+
+[[mtsp画路径图]]
+
+
+<<list-links "[tag[matplotlib]sort[title]]">>
+
+

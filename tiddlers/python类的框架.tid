@@ -1,0 +1,32 @@
+created: 20220315023900861
+creator: 胖虎
+modified: 20220315024415275
+modifier: 胖虎
+tags: python code
+title: python类的框架
+tmap.id: 25e0b569-690a-4949-9128-89a3d13aaf6e
+type: text/vnd.tiddlywiki
+
+```py
+class Res():
+    def __init__(self, index, st, pt):
+        # 初始化对象
+        self.index = index
+        self.st = st
+        self.pt = pt
+
+    def __repr__(self):
+        # 展示对象
+        return 'id = '+str(self.id) + ', name = '+self.name
+
+    def __call__(self):
+        # 调用对象方法
+        print('I can be called')
+        # print(f'my name is {self.name}')		
+				
+				
+if __name__ == '__main__':
+    Res res = Res(index, st, pt)
+    res()		#call
+    print(res)	#repr
+```

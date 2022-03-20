@@ -1,0 +1,44 @@
+created: 20220320121002570
+creator: 胖虎
+modified: 20220320122115882
+modifier: 胖虎
+tags: git
+title: SSHkey配置
+tmap.id: 02f24061-d6a3-444f-8f11-06aedc57f6ca
+type: text/vnd.tiddlywiki
+
+! `SSHkey`配置
+
+;`SSHkey`
+:用途：本地`git`文件推送到远程时，用`SSHkey`的方式验证身份
+:方法：在`github`上添加本地创建的`SSHkey`，接收到推送时即可验证身份
+
+!! 具体步骤
+!!! 检查本机存在的sshkey
+
+```
+cd ~/.ssh
+```
+
+!!! 若无，则创建本机的SSH密匙
+
+```
+ssh-keygen -t rsa -C "注册Github账户时用的邮箱"
+
+```
+
+连续回车直至成功
+
+!!! 配置`Github`的`SSH Key`
+
+进入Github首页，点击右上角的头像选择Settings，选择左侧菜单的SSH and GPG keys，然后点击右侧的New SSH key按钮，打开上面第三步的本地密钥id_rsa.pub文件（用记事本打开并复制其内容），复制到GitHub的key文本框中，title可以随意设置
+
+!!! 测试是否配置成功
+
+
+```
+ssh -T git@github.com
+```
+
+!!! 参考内容
+*[[CSDN-GitHub配置SSH Key|https://blog.csdn.net/m0_67265464/article/details/123602012?spm=1001.2014.3001.5502]]

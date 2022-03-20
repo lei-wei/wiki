@@ -1,0 +1,30 @@
+created: 20220315025700724
+creator: 胖虎
+modified: 20220315030655770
+modifier: 胖虎
+tags: codeNote
+title: cookie
+tmap.id: bd670bb3-b5cb-4a10-be49-3fbc6974abd3
+type: text/vnd.tiddlywiki
+
+
+;HTTP协议特点
+:HTTP协议本身是无状态的,无状态是指Web浏览器与Web服务器之间不需要建立持久的连接，这意味着当一个客户端向服务器端发出请求，然后Web服务器返回响应（Response），连接就被关闭了，在服务器端不保留连接的有关信息。也就是说，HTTP请求只能由客户端发起，而服务器不能主动向客户端发送数据。即服务器无法判断用户身份。
+
+;Cookie本质
+:Cookie实际上是一小段的文本信息（key-value格式）。客户端向服务器发起请求，如果服务器需要记录该用户状态，就使用response向客户端浏览器颁发一个Cookie。客户端浏览器会把Cookie保存起来。当浏览器再请求该网站时，浏览器把请求的网址连同该Cookie一同提交给服务器。服务器检查该Cookie，以此来辨认用户状态。
+
+
+;Cookie机制
+:当用户第一次访问并登陆一个网站的时候，cookie的设置以及发送会经历以下4个步骤：
+
+# 客户端发送一个请求到服务器
+# 服务器发送一个HttpResponse响应到客户端，其中包含Set-Cookie的头部
+# 客户端保存cookie，之后向服务器发送请求时，HttpRequest请求中会包含一个Cookie的头部
+# 服务器返回响应数据
+[img[http_cookie.png]]
+
+
+;Cookie属性项
+:见下图
+[img[cookie_attribute.png]]

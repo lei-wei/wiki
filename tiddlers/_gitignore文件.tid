@@ -1,11 +1,13 @@
 created: 20211207041247707
 creator: 胖虎
-modified: 20211229085700851
+modified: 20220320120927741
 modifier: 胖虎
-tags: git 编程笔
-title: .gitignore
+tags: git
+title: .gitignore文件
 tmap.id: 2e055f56-19cb-430a-b288-79986c8c4f8e
 type: text/vnd.tiddlywiki
+
+! `.gitignore`文件
 
 !! 用途
 ;`.gitignore`文件

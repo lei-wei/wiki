@@ -1,0 +1,99 @@
+created: 20220315024900768
+creator: 胖虎
+modified: 20220315025022121
+modifier: 胖虎
+tags: code matplotlib python
+title: TALBP画甘特图
+tmap.id: 08c1bf76-962a-4973-8fcf-ffc0daf0830e
+type: text/vnd.tiddlywiki
+
+!! 双边装配线画甘特图
+
+```py
+# coding=UTF-8
+import matplotlib.pyplot as plt
+import os
+import sys
+
+os.chdir(sys.path[0])
+
+plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
+plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
+
+
+class Res():
+    def __init__(self, index, st, pt):
+        # 初始化对象
+        self.index = index
+        self.st = st
+        self.pt = pt
+
+def loadData(path=r'./resGraphData.txt'):
+    with open(path, 'r') as f:
+        lines = f.readlines()
+        res = []
+        for line in lines:
+            station = []
+            s = line.split()
+            for i in range(int(len(s)/3)):
+                station.append(Res(s[i*3], s[i*3+1], s[i*3+2]))
+            res.append(station)
+        return res
+
+def showRes(res):
+    print("工作站分配方案：")
+    for station in res:
+        for r in station:
+            print(r.index, end=",")
+        print("")
+    print("详细加工数据：")
+    for station in res:
+        for r in station:
+            print(r.index, end=" ")
+            print(r.st, end=" ")
+            print(r.pt, end=" \t")
+        print("")
+    # print("利用率等")
+    makespanArray = []
+    for sta in res:
+        makeSpan = 0.
+        etArray = [float(opr.st)+float(opr.pt) for opr in sta]
+        if(etArray):
+            makeSpan = max(etArray)
+        makespanArray.append(makeSpan)
+        
+    cycleTime = max(makespanArray)
+    rateArray = [makespan/cycleTime for makespan in makespanArray]
+    print("完工时间")
+    for t in makespanArray:
+        print(t)
+    print("利用率")
+    for rate in rateArray:
+        print(rate)
+
+
+def graph(res):
+    plt.figure(figsize=(8, 4), dpi=300)
+    # plt.title("双边装配线平衡")
+    plt.xlabel("工作站时间/s")
+    plt.ylabel("工作站序号")
+
+    m = range(len(res))
+    for station_index in m:
+        for oper in res[station_index]:
+            plt.barh(station_index+1, float(oper.pt),
+                     left=float(oper.st), edgecolor='black', color='lightgray')
+            plt.text(y=station_index+0.8, x=float(oper.st) +
+                     float(oper.pt)/2-3, s=oper.index, fontsize=7)
+
+    plt.yticks([i+1 for i in range(12)], ['1L', '1R', '2L', '2R',
+                                          '3L', '3R', '4L', '4R', '5L', '5R', '6L', '6R'])
+    plt.savefig('gantt.png')
+    plt.show()
+
+
+if __name__ == '__main__':
+    res = loadData()
+    showRes(res)
+    graph(res)
+```

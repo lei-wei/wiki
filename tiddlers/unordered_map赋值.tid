@@ -1,0 +1,48 @@
+created: 20220316085524519
+creator: 胖虎
+modified: 20220316085626528
+modifier: 胖虎
+tags: 未分类草稿 leetcode 哈希表
+title: unordered_map赋值
+tmap.id: 14592290-219f-446a-beaa-a9645759545a
+type: text/vnd.tiddlywiki
+
+
+
+
+
+```cpp
+class Solution
+{
+private:
+    unordered_map<char, int> hashmap = {
+        {'I', 1},
+        {'V', 5},
+        {'X', 10},
+        {'L', 50},
+        {'C', 100},
+        {'D', 500},
+        {'M', 1000},
+    };
+
+public:
+    int romanToInt(string s)
+    {
+        int res = 0;
+        for (size_t i = 0; i < s.size(); i++)
+        {
+            if (i < s.size() - 1 && hashmap[s[i]] < hashmap[s[i + 1]]) //出现左边的情况
+            {
+                res += hashmap[s[i + 1]] - hashmap[s[i]];
+                i++;
+            }
+            else //正常相加
+            {
+                res += hashmap[s[i]];
+            }
+        }
+
+        return res;
+    }
+};
+```

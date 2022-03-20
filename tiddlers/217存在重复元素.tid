@@ -1,0 +1,93 @@
+created: 20220314132123766
+creator: 胖虎
+modified: 20220314133653913
+modifier: 胖虎
+tags: 哈希表 leetcode
+title: 217存在重复元素
+tmap.id: 3b6c0723-9dd2-45c9-bf8c-1aabbc36ff02
+type: text/vnd.tiddlywiki
+
+! 题目
+
+<<<
+给你一个整数数组 nums 。如果任一值在数组中出现 至少两次 ，返回 true ；如果数组中每个元素互不相同，返回 false 
+<<<
+
+```
+示例 1：
+输入：nums = [1,2,3,1]
+输出：true
+```
+
+!! 标准解法：散列表
+
+```cpp
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+         unordered_set<int> s;
+         for(int& i : nums)
+         {
+             if(s.find(i)!=s.end())
+             {
+                 return true;
+             }
+             s.insert(i);
+         }
+         return false;
+    }
+};
+```
+
+
+
+
+!! 常规一点的解法
+
+```cpp
+class Solution
+{
+public:
+    bool containsDuplicate(vector<int> &nums)
+    {
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
+        for (int i = 0; i < n - 1; i++)
+        {
+            if (nums[i] == nums[i + 1])
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+```
+
+
+!! 欢乐解法
+
+随机算法，蒙特卡罗方法。核心思想是如果存在重复并且抽样的次数足够多，大概率存在某一次正好可以将重复的两个元素抽出来。
+
+```cpp
+bool containsDuplicate(int *nums, int numsSize)
+{
+    int i;
+    int a, b;
+    srand(time(0));
+    if (0 == numsSize || 1 == numsSize)
+    {
+        return false;
+    }
+    for (i = 0; i < 100000; i++)
+    {
+        a = rand() % numsSize;
+        b = rand() % numsSize;
+        if (a != b && (nums[a] == nums[b]))
+        {
+            return true;
+        }
+    }
+    return 9999 == nums[numsSize - 1];
+}
+```

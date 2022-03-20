@@ -4,9 +4,9 @@
         "creator": "胖虎 ",
         "text": "\n\n大家好我是[[胖虎]]，这是我的博客：[[博客地址|http://leiwei.xyz]]\n\n\n这里是TiddlyWiki，一个有趣的非线性网页记录工具，也即将成为我的线上笔记本知识库，折腾了好久，希望能够帮助我多写多思考。\n\n\n想了想个人日志还是不公开到网上了，所以[[Journal]]那一栏的日记都删掉了，留着是想以后有想说的话还是会放在这里。论文的思路内容没有公开的意义，所以也不会在这里再更新了。\n\n!!一些官方资料\n\n* [[TiddlyWiki官网|https://tiddlywiki.com/]]\n* [[Tiddlywiki基础文档中文版|https://bramchen.github.io/tw5-docs/zh-Hans/]]\n* [[太微中文教程|https://tw-cn.netlify.app/]]\n* $$\\KaTeX$$[[官网语法|https://katex.org/docs/supported.html]]\n\n\n!! 自己整理的一些东西\n* [[为什么要用TiddlyWiki]]\n\n* [[上手教程]]\n\n* [[markup language语法]]\n\n!!主题设置\n\n* 最常用的应该是这个[[notebook|https://nicolas.petton.fr/tw/notebook.html]]主题，可以在这里[[设置|$:/ControlPanel]]\n* 不，最常用的还是默认主题QAQ。\n\n!!一些插件\n\n* markdown支持，支持`[textname](#pageName)`跳转，但还是不如markup language强大，尽量不用\n* 数学公式$$\\KaTeX$$支持，`$$\\KaTeX$$`\n*[[TodoList|$:/plugins/kookma/todolist]]支持，虽然没完全搞懂，感觉也用不上\n\n",
         "title": "About",
-        "modified": "20220110115352547",
+        "modified": "20220315124246138",
         "modifier": "胖虎",
-        "tags": "Guide Contents",
+        "tags": "Guide",
         "type": "text/vnd.tiddlywiki",
         "tmap.id": "0db84bb3-d86e-4066-b654-34bb8e537cd1"
     }
