@@ -1,6 +1,6 @@
 created: 20211207044228291
 creator: 胖虎
-modified: 20211207044831888
+modified: 20220324092521245
 modifier: 胖虎
 tags: 数据结构
 title: 队列
@@ -11,11 +11,34 @@ type: text/vnd.tiddlywiki
 
 :''先入先出''，入队`push()`出队`pop()`。
 
-常见用法：
+!!! 常见用法：
 
 ```cpp
 que.push(1); // 元素 1 入队
 que.push(2); // 元素 2 入队
 que.pop();   // 出队 -> 元素 1
 que.pop();   // 出队 -> 元素 2
+q.empty();   // 如果队列为空返回true，否则返回false
+q.size();    // 返回队列中元素的个数
+q.front();   // 返回队首元素的值，但不删除该元素
+q.back();    // 返回队列尾元素的值，但不删除该元素
+```
+
+!!! 清空队列queue
+
+C++中的`queue`自身不支持`clear`操作
+
+循环压出
+
+```cpp
+while (!Q.empty()) Q.pop();
+```
+
+`swap`替换，这种是最高效的，定义clear，保持STL容器的标准
+
+```cpp
+void clear(queue<int>& q) {
+	queue<int> empty;
+	swap(empty, q);
+}
 ```

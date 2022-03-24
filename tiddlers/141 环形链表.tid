@@ -1,0 +1,66 @@
+created: 20220323062602253
+creator: 胖虎
+modified: 20220323064409752
+modifier: 胖虎
+tags: leetcode 哈希表 链表 [[Floyd 判圈算法]]
+title: 141 环形链表
+tmap.id: 55bd7235-29db-4957-a54c-8a35bd550f21
+type: text/vnd.tiddlywiki
+
+! 141. 环形链表
+
+给你一个链表的头节点 head ，判断链表中是否有环。
+
+https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist_test2.png
+
+[img[https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist_test2.png]]
+
+!! 解法1：哈希表
+
+记录每个节点，通过哈希表判断是否重复，从而判断是否存在环
+
+```cpp
+bool hasCycle(ListNode *head)
+{
+    unordered_set<ListNode *> se;
+    while (head != nullptr)
+    {
+        if (se.count(head))
+        {
+            return true;
+        }
+        se.insert(head);
+        head = head->next;
+    }
+    return false;
+}
+```
+
+!! 解法2：Floyd 判圈算法，又称龟兔赛跑算法
+
+假想「乌龟」和「兔子」在链表上移动，「兔子」跑得快，「乌龟」跑得慢。当「乌龟」和「兔子」从链表上的同一个节点开始移动时，如果该链表中没有环，那么「兔子」将一直处于「乌龟」的前方；如果该链表中有环，那么「兔子」会先于「乌龟」进入环，并且一直在环内移动。等到「乌龟」进入环时，由于「兔子」的速度快，它一定会在某个时刻与乌龟相遇，即套了「乌龟」若干圈。
+
+```cpp
+bool hasCycle(ListNode *head)
+{
+    if (head == nullptr)
+    {
+        return false;
+    }
+    auto p1 = head;		//龟 
+    auto p2 = head->next;	//兔
+    while (true)
+    {
+        if (p2 == nullptr || p2->next == nullptr)
+        {
+            return false;
+        }
+        if (p1 == p2)
+        {
+            return true;
+        }
+        p1 = p1->next;
+        p2 = p2->next->next;
+    }
+}
+```

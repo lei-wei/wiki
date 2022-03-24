@@ -1,0 +1,125 @@
+created: 20220322025808011
+creator: 胖虎
+modified: 20220322075717210
+modifier: 胖虎
+tags: leetcode 动态规划
+title: 最大子数组和
+tmap.id: 5e8615e6-c4b1-4aa9-8c74-2d2a2530efd8
+type: text/vnd.tiddlywiki
+
+! 53 最大子数组和
+
+!! 题目描述
+
+给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+
+示例
+
+```
+输入：nums = [-2,1,-3,4,-1,2,1,-5,4]
+输出：6
+解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。
+```
+
+!! 解法1：动态规划
+用`f(i)`代表以第`i`位结尾的连续子数组的最大和，则`ans=max(f(i))`
+
+`f(i)`则有递归公式，`f(i)=max(f(i-1)+i, i)`
+
+代码：
+
+```cpp
+    int maxSubArray(vector<int> &nums)
+    {
+        int ans = nums.front();
+        int f0 = 0;
+        for (auto &&i : nums)
+        {
+            f0 = max(f0 + i, i);
+            ans = max(ans, f0);
+        }
+        return ans;
+    }
+```
+
+!! 解法2：动态子数组
+
+遍历一次，将所有''和为正''的子数组之和计算出，取最大值即可
+
+代码：
+
+```cpp
+int maxSubArray(vector<int> &nums)
+{
+    int ans = nums.front();
+    int sum = 0;
+    for (auto &&i : nums)
+    {
+        if (sum > 0)
+        {
+            sum += i;
+        }
+        else
+        {
+            sum = i;
+        }
+        ans = max(ans, sum);
+    }
+    return ans;
+}
+
+```
+
+!! 解法3：双指针
+
+暴力枚举所有情况
+
+代码略
+
+!! 解法4：分治
+
+貌似有错误，先待定
+
+
+```cpp
+class Solution
+{
+public:
+    struct Status
+    {
+        int lSum,   //连接左侧顶端的子段数组和的最大值
+            rSum,   //连接右侧顶端的子段数组和的最大值
+            mSum,   //所有子段数组和的最大值
+            allSum; //内部子段数组和的最大值
+    };
+
+    Status merge(Status sl, Status sr)
+    {
+        int lSum = max(sl.lSum, sl.allSum + sr.lSum);
+        int rSum = max(sr.rSum, sl.lSum + sr.allSum);
+        int mSum = max(max(sl.mSum, sr.mSum), sl.rSum + sr.lSum);
+        int allSum = sl.allSum + sr.allSum;
+        return (Status){lSum, rSum, mSum, allSum};
+    }
+
+    Status get(vector<int> &list, int l, int r)
+    {
+        if (l == r)
+        {
+            return (Status){list[l], list[l], list[l], list[l]};
+        }
+        int m = (l + r) / 2;
+
+        Status sl = get(list, l, m);
+        Status sr = get(list, m, r);
+        return merge(sl, sr);
+    }
+
+    int maxSubArray(vector<int> &nums)
+    {
+
+        return get(nums, 0, nums.size() - 1).mSum;
+    }
+};
+```
+

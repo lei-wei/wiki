@@ -1,0 +1,82 @@
+created: 20220323073138579
+creator: 胖虎
+modified: 20220323074548994
+modifier: 胖虎
+tags: 栈 哈希表
+title: 20. 有效的括号
+tmap.id: 4a2ef2e6-c559-46d1-a4a6-1e5d0f012f53
+type: text/vnd.tiddlywiki
+
+
+
+! 20. 有效的括号
+
+给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。
+
+有效字符串需满足：
+
+* 左括号必须用相同类型的右括号闭合。
+* 左括号必须以正确的顺序闭合。
+
+
+```cpp
+bool isValid(string s)
+{
+    unordered_map<char, char> pairs = {
+        {')', '('},
+        {']', '['},
+        {'}', '{'}};
+    stack<char> stk;
+    for (auto &&c : s)
+    {
+        if (pairs.count(c) && !stk.empty() && pairs[c] == stk.top())
+        {
+            stk.pop();
+        }
+        else
+        {
+            stk.push(c);
+        }
+    }
+    return stk.empty() ? true : false;
+}
+```
+
+
+!! 更秀的写法
+
+简单替换左右括号，判断相等即可，就省去了用哈希表判断左右符号匹配的过程。
+
+```cpp
+bool isValid(string s)
+{
+    stack<char> stk;
+    for (auto &&c : s)
+    {
+        if (c == '(')
+        {
+            stk.push(')');
+        }
+        else if (c == '[')
+        {
+            stk.push(']');
+        }
+        else if (c == '{')
+        {
+            stk.push('}');
+        }
+        else
+        {
+            if (stk.empty() || stk.top() != c)
+            {
+                return false;
+            }
+            else
+            {
+                stk.pop();
+            }
+        }
+    }
+    return stk.empty();
+}
+```

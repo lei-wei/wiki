@@ -1,0 +1,228 @@
+created: 20220323075808738
+creator: 胖虎
+modified: 20220324092028491
+modifier: 胖虎
+tags: 递归 二叉树 leetcode 栈 树 队列
+title: 144 94 二叉树的前、中、后序遍历
+tmap.id: d9aa421e-bb74-4889-8e6b-f30dcf82b61c
+type: text/vnd.tiddlywiki
+
+! 144. 二叉树的前序遍历
+
+给你二叉树的根节点 root ，返回它节点值的 前序 遍历。
+
+前序遍历即：先左再右
+
+!! 解法1：递归
+
+```cpp
+void dp(TreeNode *root, vector<int> &re)
+{
+    if (root != nullptr)
+    {
+        re.push_back(root->val);
+        dp(root->left, re);
+        dp(root->right, re);
+    }
+}
+vector<int> preorderTraversal(TreeNode *root)
+{
+    vector<int> res;
+    dp(root, res);
+    return res;
+}
+```
+
+!! 解法二：迭代，栈
+
+我们也可以用迭代的方式实现方法一的递归函数，两种方式是等价的，区别在于递归的时候隐式地维护了一个栈，而我们在迭代的时候需要显式地将这个栈模拟出来，其余的实现与细节都相同，
+
+
+```cpp
+vector<int> preorderTraversal(TreeNode *root)
+{
+    vector<int> res;
+    stack<TreeNode *> stk;
+    stk.push(root);
+    while (!stk.empty())
+    {
+        auto tempTN = stk.top();
+        stk.pop();
+        if (tempTN != nullptr)
+        {
+            res.push_back(tempTN->val);
+            if (tempTN->right != nullptr)
+            {
+                stk.push(tempTN->right);
+            }
+            if (tempTN->left != nullptr)
+            {
+                stk.push(tempTN->left);
+            }
+        }
+    }
+    return res;
+}
+```
+
+!! 二叉树的中序遍历
+
+一样的结构
+
+```cpp
+vector<int> inorderTraversal(TreeNode *root)
+{
+    vector<int> res;
+    stack<TreeNode *> stk;
+    if (root == nullptr)
+    {
+        return res;
+    }
+    stk.push(root);
+    while (!stk.empty())
+    {
+        auto tempTN = stk.top();
+        stk.pop();
+
+        if (tempTN->right != nullptr)
+        {
+            stk.push(tempTN->right);
+        }
+
+        if (tempTN->left == nullptr)
+        {
+            res.push_back(tempTN->val);
+        }
+        else
+        {
+            stk.push(new TreeNode(tempTN->val));
+            stk.push(tempTN->left);
+        }
+    }
+    return res;
+}
+```
+
+!! 二叉树的中序遍历
+
+一样的结构
+
+```cpp
+vector<int> postorderTraversal(TreeNode *root)
+{
+    vector<int> res;
+    stack<TreeNode *> stk;
+    if (root == nullptr)
+    {
+        return res;
+    }
+    stk.push(root);
+    while (!stk.empty())
+    {
+        auto tempTN = stk.top();
+        stk.pop();
+        if (tempTN->left != nullptr)
+        {
+            stk.push(tempTN->left);
+        }
+        if (tempTN->right == nullptr)
+        {
+            res.push_back(tempTN->val);
+        }
+        else
+        {
+            stk.push(new TreeNode(tempTN->val));
+            stk.push(tempTN->right);
+        }
+    }
+    return res;
+}
+```
+
+!! 代码模板：二叉树前中后序遍历模板
+
+二叉树前中后序遍历模板，只需要调整中间的，根节点和左右子节点的顺序即可，用`nullptr`标记了栈中根节点的位置，good
+idea。
+
+```cpp
+vector<int> inorderTraversal(TreeNode *root)
+{
+    if (root == nullptr)
+    {
+        return {};
+    }
+    vector<int> res;
+    stack<TreeNode *> stk;
+    stk.push(root);
+    while (!stk.empty())
+    {
+        auto tempTN = stk.top();
+        stk.pop();
+        if (tempTN != nullptr)
+        {
+            if (tempTN->right != nullptr)
+            {
+                stk.push(tempTN->right);
+            }
+            stk.push(tempTN);
+            stk.push(nullptr);
+            if (tempTN->left != nullptr)
+            {
+                stk.push(tempTN->left);
+            }
+        }
+        else
+        {
+            res.push_back(stk.top()->val);
+            stk.pop();
+        }
+    }
+    return res;
+}
+```
+
+
+
+
+!! 二叉树的层序遍历
+
+用到了两层队列
+
+```cpp
+vector<vector<int>> levelOrder(TreeNode *root)
+{
+    if (root == nullptr)
+    {
+        return {};
+    }
+    vector<vector<int>> res;
+    queue<TreeNode *> que;
+    que.push(root);
+    vector<int> r;          //每一层的值
+    queue<TreeNode *> que2; //下一层的节点队列
+    do
+    {
+        while (!que.empty())
+        {
+            auto tempTN = que.front();
+            que.pop();
+            r.push_back(tempTN->val);
+            if (tempTN->left != nullptr)
+            {
+                que2.push(tempTN->left);
+            }
+            if (tempTN->right != nullptr)
+            {
+                que2.push(tempTN->right);
+            }
+        }
+        res.push_back(r);
+        r.clear();
+        que = que2;
+        // que2 = queue<int>();
+        while (!que2.empty())
+            que2.pop();
+    } while (!que.empty());
+    return res;
+}
+```

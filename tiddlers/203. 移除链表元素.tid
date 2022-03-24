@@ -1,0 +1,48 @@
+created: 20220323071450346
+creator: 胖虎
+modified: 20220323071908464
+modifier: 胖虎
+tags: leetcode 链表 递归
+title: 203. 移除链表元素
+tmap.id: 86a804c1-34d4-4b6b-afbe-5cfab1e2e3a7
+type: text/vnd.tiddlywiki
+
+! 203. 移除链表元素
+
+给你一个链表的头节点 head 和一个整数 val ，请你删除链表中所有满足 Node.val == val 的节点，并返回 新的头节点 。
+
+!! 解法1：递归
+
+```cpp
+ListNode *removeElements(ListNode *head, int val)
+{
+    if (head == nullptr)
+    {
+        return head;
+    }
+    head->next = removeElements(head->next, val);	//递归
+    return head->val == val ? head->next : head;
+}
+```
+
+!! 解法2：迭代
+
+```cpp
+ListNode *removeElements(ListNode *head, int val)
+{
+    ListNode *dummyHead = new ListNode(0, head);
+    ListNode *temp = dummyHead;
+    while (temp->next != NULL)
+    {
+        if (temp->next->val == val)
+        {
+            temp->next = temp->next->next;
+        }
+        else
+        {
+            temp = temp->next;
+        }
+    }
+    return dummyHead->next;
+}
+```

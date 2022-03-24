@@ -1,0 +1,49 @@
+created: 20220322122649852
+creator: 胖虎
+modified: 20220322122838441
+modifier: 胖虎
+tags: leetcode 哈希表
+title: 36 有效的数独
+tmap.id: 18fca190-8f29-420b-bc9e-990e60b109aa
+type: text/vnd.tiddlywiki
+
+
+巧妙的数据结构
+
+
+<<<
+请你判断一个 9 x 9 的数独是否有效。只需要 根据以下规则 ，验证已经填入的数字是否有效即可。
+
+* 数字 1-9 在每一行只能出现一次。
+* 数字 1-9 在每一列只能出现一次。
+* 数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。
+<<<
+
+
+```cpp
+bool isValidSudoku(vector<vector<char>> &board)
+{
+    int row[9][9];
+    int col[9][9];
+    int sub[3][3][9];
+    memset(row, 0, sizeof(row));
+    memset(col, 0, sizeof(row));
+    memset(sub, 0, sizeof(row));
+
+    for (size_t i = 0; i < 9; i++)
+    {
+        for (size_t j = 0; j < 9; j++)
+        {
+            if (board[i][j] == '.')
+                continue;
+            int index = board[i][j] - '1';
+            row[i][index]++;
+            col[j][index]++;
+            sub[i / 3][j / 3][index]++;
+            if (row[i][index] > 1 || col[j][index] > 1 || sub[i / 3][j / 3][index] > 1)
+                return false;
+        }
+        return true;
+    }
+};
+```

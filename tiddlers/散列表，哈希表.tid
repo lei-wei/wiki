@@ -1,6 +1,6 @@
 created: 20220314131736156
 creator: 胖虎
-modified: 20220315132028861
+modified: 20220324083120517
 modifier: 胖虎
 tags: 数据结构
 title: 散列表，哈希表
@@ -20,10 +20,17 @@ type: text/vnd.tiddlywiki
 ;特点
 :Hash Table的查询速度非常的快，几乎是O(1)的时间复杂度。
 
+有`unordered_set<type T>`和`unordered_map<type firstT, type secondT>`两种，前者存储单个元素，后者存储键值对`key-value`。
+
 !! 组成
 
 ''插入''和''搜索''是哈希表中的两个基本操作
 
+# 1. `.insert()`: 插一个成员；
+# 2. `.find()`: 返回迭代器，找不到则返回`end()`；
+# 3. `empty()`: 如果栈为空返回true，否则返回false；
+# 4. `count()`: 返回某元素的个数，也可以用作判断是否存在；
+# 5. `size()`: 返回栈元素数量；
 
 !! 问题实例
 
