@@ -1,13 +1,13 @@
 created: 20220314131736156
 creator: 胖虎
-modified: 20220324083120517
+modified: 20220330092430992
 modifier: 胖虎
 tags: 数据结构
-title: 散列表，哈希表
+title: 哈希表
 tmap.id: 68a86f74-14a4-4ff8-b94b-467bfee2fafe
 type: text/vnd.tiddlywiki
 
-哈希表：一种数据结构，它''使用哈希函数组织数据''，以支持''快速插入和搜索''。
+哈希表：又称散列表，一种数据结构，它''使用哈希函数组织数据''，以支持''快速插入和搜索''。
 
 ;原理
 
@@ -35,6 +35,8 @@ type: text/vnd.tiddlywiki
 !! 问题实例
 
 由哈希表的特性，即可求解重复元素问题
-[[217存在重复元素]]
+
+<<list-links "[tag[哈希表]sort[title]]">>
+
 
 

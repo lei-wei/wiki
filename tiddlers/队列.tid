@@ -1,6 +1,6 @@
 created: 20211207044228291
 creator: 胖虎
-modified: 20220324092521245
+modified: 20220330092339648
 modifier: 胖虎
 tags: 数据结构
 title: 队列
@@ -42,3 +42,7 @@ void clear(queue<int>& q) {
 	swap(empty, q);
 }
 ```
+
+!! 题目
+
+<<list-links "[tag[队列]sort[title]]">>

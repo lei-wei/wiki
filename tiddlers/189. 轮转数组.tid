@@ -1,0 +1,48 @@
+created: 20220329032727512
+creator: 胖虎
+modified: 20220329043312548
+modifier: 胖虎
+tags: leetcode
+title: 189. 轮转数组
+tmap.id: 4ecfab5c-60a9-4963-bc82-bcd90e7c29bd
+type: text/vnd.tiddlywiki
+
+!! 题目描述
+
+给你一个数组，将数组中的元素向右轮转 k 个位置，其中 k 是非负数
+
+!! 解法：数组翻转
+
+该方法为数组的翻转：我们可以先将所有元素翻转，这样尾部的`k % n`个元素就被移至数组头部，然后我们再翻转`[0,k % n - 1]`区间的元素和`[k % n, n - 1 ]` 区间的元素即能得到最后的答案
+
+```cpp
+void rotate(vector<int> &nums, int k)
+{
+    k %= nums.size();
+    reverse(nums.begin(), nums.end());
+    reverse(nums.begin(), nums.begin() + k);
+    reverse(nums.begin() + k, nums.end());
+}
+```
+
+其中`reverse`函数是`Algorithm`头文件里的，用处为翻转。当然也可以手写翻转函数：
+
+```cpp
+void reverse(vector<int> &nums, int start, int end)
+{
+    while (start < end)
+    {
+        swap(nums[start], nums[end]);
+        start++;
+        end--;
+    }
+}
+
+void rotate(vector<int> &nums, int k)
+{
+    k %= nums.size();
+    reverse(nums, 0, nums.size() - 1);
+    reverse(nums, 0, k - 1);
+    reverse(nums, k, nums.size() - 1);
+}
+```

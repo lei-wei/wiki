@@ -1,0 +1,47 @@
+created: 20220329064606047
+creator: 胖虎
+modified: 20220329064901336
+modifier: 胖虎
+tags: leetcode 双指针
+title: 167. 两数之和 II - 输入有序数组
+tmap.id: 3c70e6aa-a007-45b3-af97-6ee147b6da6a
+type: text/vnd.tiddlywiki
+
+! 167. 两数之和 II - 输入有序数组
+
+给你一个下标从 1 开始的整数数组 numbers ，该数组已按 非递减顺序排列  ，请你从数组中找出满足相加之和等于目标数 target 的两个数。如果设这两个数分别是 numbers[index1] 和 numbers[index2] ，则 1 <= index1 < index2 <= numbers.length 。
+
+!! 双指针解法
+
+初始时两个指针分别指向第一个元素位置和最后一个元素的位置。每次计算两个指针指向的两个元素之和，并和目标值比较。
+
+* 如果两个元素之和等于目标值，则发现了唯一解。
+* 如果两个元素之和小于目标值，则将左侧指针右移一位。
+* 如果两个元素之和大于目标值，则将右侧指针左移一位。移动指针之后，重复上述操作，直到找到答案
+
+由于问题条件中仅存在唯一解，双指针不会错过该解。
+
+```cpp
+vector<int> twoSum(vector<int> &numbers, int target)
+{
+    int pl = 0, pr = numbers.size() - 1;
+    while (pl < pr)
+    {
+        if (numbers[pl] + numbers[pr] > target)
+        {
+            pr -= 1;
+        }
+        else if (numbers[pl] + numbers[pr] < target)
+        {
+            pl += 1;
+        }
+        else
+        {
+            return {pl + 1, pr + 1};
+        }
+    }
+    return {};
+}
+```
+
+

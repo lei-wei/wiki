@@ -1,0 +1,17 @@
+created: 20220325025326123
+creator: 胖虎
+modified: 20220325030401828
+modifier: 胖虎
+tags: 二叉树 BFS DFS 递归 分治
+title: 104. 二叉树的最大深度
+tmap.id: 2fc1d66c-1660-4740-bbd3-5422149644b0
+type: text/vnd.tiddlywiki
+
+! 104. 二叉树的最大深度
+
+```cpp
+int maxDepth(TreeNode *root)
+{
+    return root == nullptr ? 0 : max(maxDepth(root->left), maxDepth(root->right)) + 1;
+}
+```

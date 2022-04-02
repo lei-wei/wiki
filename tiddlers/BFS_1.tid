@@ -1,0 +1,14 @@
+created: 20220325025947339
+creator: 胖虎
+modified: 20220325030317874
+modifier: 胖虎
+tags: 算法
+title: BFS
+tmap.id: 7f5a3a07-77a6-413d-a72f-ef79baadac99
+type: text/vnd.tiddlywiki
+
+广度优先搜索(也称宽度优先搜索，Breadth First Search,缩写BFS)
+
+广度优先遍历，指的是从图的一个未遍历的节点出发，先遍历这个节点的相邻节点，再依次遍历每个相邻节点的相邻节点。
+
+与之相对的是 深度优先搜索[[DFS]]

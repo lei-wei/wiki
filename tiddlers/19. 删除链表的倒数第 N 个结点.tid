@@ -1,0 +1,58 @@
+created: 20220329074845087
+creator: 胖虎
+modified: 20220329075737228
+modifier: 胖虎
+tags: leetcode 双指针 栈
+title: 19. 删除链表的倒数第 N 个结点
+tmap.id: 97872e8d-461c-4a3e-9d02-ecb6a9e27268
+type: text/vnd.tiddlywiki
+
+! 19. 删除链表的倒数第 N 个结点
+
+给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
+
+
+!! 解法一：栈
+
+```cpp
+ListNode *removeNthFromEnd(ListNode *head, int n)
+{
+    ListNode *dummy = new ListNode(0, head);
+    stack<ListNode *> stk;
+    ListNode *cur = dummy;
+    while (cur != nullptr)
+    {
+        stk.push(cur);
+        cur = cur->next;
+    }
+    for (size_t i = 0; i < n; i++)
+    {
+        stk.pop();
+    }
+    stk.top()->next = stk.top()->next->next;
+    return dummy->next;
+}
+```
+
+!! 解法二：双指针
+
+```cpp
+ListNode *removeNthFromEnd(ListNode *head, int n)
+{
+    ListNode *dummy = new ListNode(0, head);
+    ListNode *pfast = head;
+    ListNode *pslow = dummy;
+    //快慢指针之间永远相差n+1个节点
+    for (size_t i = 0; i < n; i++)
+    {
+        pfast = pfast->next;
+    }
+    while (pfast != nullptr)
+    {
+        pfast = pfast->next;
+        pslow = pslow->next;
+    }
+    pslow->next = pslow->next->next;
+    return dummy->next;
+}
+```
