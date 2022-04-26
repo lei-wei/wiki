@@ -1,6 +1,6 @@
 created: 20211207044011581
 creator: 胖虎
-modified: 20220426065428856
+modified: 20220426073631702
 modifier: 胖虎
 tags: 数据结构
 title: 链表
@@ -9,7 +9,7 @@ type: text/vnd.tiddlywiki
 
 !! 链表`ListNode`
 
-:链表以节点为单位，每个节点都是独立对象，对象含有两个成员：值`val`和后续节点引用`next`，每个节点链接下一个节点，存储**内存非连续**。
+:链表以节点为单位，每个节点都是独立对象，对象含有两个成员：值`val`和后续节点引用`next`，每个节点链接下一个节点，存储''内存非连续''。
 
 ```cpp
 //Definition for singly-linked list.
