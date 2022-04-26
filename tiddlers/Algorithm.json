@@ -2,9 +2,9 @@
     {
         "created": "20211203104958685",
         "creator": "胖虎 ",
-        "text": "!! 0. 前置知识\n\n[[算法复杂度]]\n\n\n!! 1. 数据结构\n\n<<list-links \"[tag[数据结构]sort[title]]\">>\n\n\n!! 2. 基础算法\n\n<<list-links \"[tag[算法]sort[title]]\">>\n\n!! 3. 算法\n\n* [[蚁群算法]]\n",
+        "text": "!! 0. 前置知识——[[算法复杂度]]\n\n\n\n\n!! 1. [[数据结构]]\n\n<<list-links \"[tag[数据结构]sort[title]]\">>\n\n\n!! 2. [[基础算法|算法]]\n\n<<list-links \"[tag[算法]sort[title]]\">>\n\n!! 3. 算法\n\n* [[蚁群算法]]\n",
         "title": "Algorithm",
-        "modified": "20220402094310028",
+        "modified": "20220407015229467",
         "modifier": "胖虎",
         "tags": "Contents",
         "type": "text/vnd.tiddlywiki",

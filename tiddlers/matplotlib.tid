@@ -1,10 +1,10 @@
-created: 20211229014017155
+created: 20220426062512506
 creator: 胖虎
-modified: 20220315025401399
+modified: 20220426063347601
 modifier: 胖虎
-tags: code python
-title: matplotlib参数
-tmap.id: bdfde9fa-f7e9-44c5-b668-78008f4eb17f
+tags: concepts python
+title: matplotlib
+tmap.id: e8cb2001-00a9-4322-9f5d-f08b5d354aec
 type: text/vnd.tiddlywiki
 
 官方网站：https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html?highlight=plot#matplotlib.pyplot.plot
@@ -15,13 +15,15 @@ type: text/vnd.tiddlywiki
 :`--`短划线
 :`-`实线
 
+!! 画点和线
+
 ```python
 >>> plot(x, y, 'go--', linewidth=2, markersize=12)
 >>> plot(x, y, color='green', marker='o', linestyle='dashed',
 ...      linewidth=2, markersize=12)
 ```
 
-`matplotlib`线形和颜色参数
+!! `matplotlib`线形和颜色参数
 
 ```py
 colorList = ['k', 'g', 'b', 'r']
@@ -38,14 +40,20 @@ plt.text(y=station_index+0.8, x=float(oper.st) +
 
 ```
 
-!! 设置大小及清晰度
+!! 设置大小及清晰度，一般不常用
 
 
 ```py
 plt.figure(figsize=(8, 4), dpi=300)	#size单位为英寸
 ```
 
+!! matplotlib出图，设置格式
 
+导出矢量图方法：
+
+```py
+plt.savefig("test.svg", format="svg")
+```
 
 !! 一些实例
 
