@@ -1,6 +1,6 @@
 created: 20220426062512506
 creator: 胖虎
-modified: 20220426063347601
+modified: 20220427032730132
 modifier: 胖虎
 tags: concepts python
 title: matplotlib
@@ -8,6 +8,9 @@ tmap.id: e8cb2001-00a9-4322-9f5d-f08b5d354aec
 type: text/vnd.tiddlywiki
 
 官方网站：https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html?highlight=plot#matplotlib.pyplot.plot
+
+cheatsheet：
+https://matplotlib.org/cheatsheets/cheatsheets.pdf
 
 ;线形：
 :`:`点线
