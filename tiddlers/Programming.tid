@@ -1,24 +1,26 @@
 created: 20211228075547254
 creator: 胖虎
 list: leetcode concepts code
-modified: 20220426062028331
+modified: 20220507060747501
 modifier: 胖虎
 tags: Contents
 title: Programming
 tmap.id: 81a77551-d2bb-49ad-ae0e-3a2ba45facef
 type: text/vnd.tiddlywiki
 
+
+
+<div class="tc-table-of-contents">
+
+<<toc-selective-expandable 'Programming'>>
+
+</div>
+
 !! 1. 刷题笔记[[leetcode]]
 
 <div class="tc-table-of-contents">
 
 <<toc-selective-expandable 'leetcode'>>
-
-</div>
-
-<div class="tc-table-of-contents">
-
-<<toc-selective-expandable 'Programming'>>
 
 </div>
 

@@ -1,0 +1,98 @@
+created: 20220507060754380
+creator: 胖虎
+modified: 20220507062547424
+modifier: 胖虎
+tags: concepts
+title: 回调函数
+tmap.id: 2ac039e7-1ae0-4a48-a0d0-0c5f97c062fe
+type: text/vnd.tiddlywiki
+
+
+!! 1. 什么是回调函数？
+
+回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。
+
+A "callback" is any function that is called by another function which takes the first function as a parameter。 
+
+!! 2. 为什么要使用回调函数？
+
+为了''解耦''
+
+[img[callback_function.png]]
+
+!! 3. 如何使用回调函数
+
+以下代码为同步回调，
+
+即存在函数的参数声明为函数指针类型，给函数传入另一个函数作为它的参数，在函数的内部可以调用传入的函数。
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int add(int x, int y) // 定义函数
+{
+    return x + y;
+}
+
+int subtract(int x, int y) // 定义函数
+{
+    return x - y;
+}
+
+// 函数作为参数传递给函数
+// operation的参数为函数指针， 还有输入参数x,y
+int operation(int (*func)(int, int), int x, int y)
+{
+    return (*func)(x, y);
+}
+
+void sayHello() // 无参数和返回值的函数
+{
+    cout << "Hello" << endl;
+}
+
+void sayGoogbye() // 无参数和返回值的函数
+{
+    cout << "goodbye" << endl;
+}
+
+void greet(void (*func)())
+{
+    (*func)(); // 调用函数
+}
+
+void saySomething(string s) // 定义有参数但没有返回值的函数
+{
+    cout << "Hello " << s << endl;
+}
+
+void greetSomeone(void (*func)(string), string word)
+{
+    (*func)(word); // 调用函数
+}
+
+int main(int argc, char *argv[])
+{
+    cout << operation(add, 3, 4) << endl;
+    cout << operation(subtract, 10, 5) << endl;
+    greet(sayHello);
+    greet(sayGoogbye);
+    greetSomeone(saySomething, string("Elithbeas"));
+    return 0;
+}
+
+// 程序运行结果：
+// 7
+// 5
+// Hello
+// goodbye
+// Hello Elithbeas
+```
+
+参考连接：
+
+* [[C语言回调函数详解——菜鸟教程|https://www.runoob.com/w3cnote/c-callback-function.html]]
+* [[C++中函数作为参数传递给其他函数——CSDN|https://blog.csdn.net/zj1131190425/article/details/88528948]]
+
+
