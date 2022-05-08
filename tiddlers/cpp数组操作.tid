@@ -1,6 +1,6 @@
 created: 20220508074523922
 creator: 胖虎
-modified: 20220508075955245
+modified: 20220508093115699
 modifier: 胖虎
 tags: 数组 memset
 title: cpp数组操作
@@ -9,11 +9,38 @@ type: text/vnd.tiddlywiki
 
 
 
-!! 动态数组，使用指针
+!! 动态数组，使用指针和`new`
 数组长度不可变，要一开始就规定数组大小，很不方便，因此有动态数组的方法
 
+new在堆分配空间，效率较低,还需要你delete;
+[]直接在栈上分配，会自动释放，效率高，但是栈空间有限。
 
+```cpp
+//一维
+int *p1 = new int[3]{1, 2, 3};
+//二维
+CITIES = new double *[DIM];
+for (int i = 0; i < DIM; i++)
+{
+	CITIES[i] = new double[2];
+}
 
+```
+		
+动态数组需使用`delete`释放，并且在数组名前需要加上“[]”
+
+释放的顺序：数组中的元素按照逆序销毁，即最后一个元素首先被销毁，然后倒数第二个....以此类推
+
+```cpp
+//一维
+delete[] p1;
+//二维
+for (int i = 0; i < DIM; i++)
+{
+	delete[] CITIES[i];
+}
+delete[] CITIES
+```
 
 !! 多维数组初始化
 
@@ -64,3 +91,5 @@ memset(A, 0, sizeof(int)*n*m);	//人为指定赋值的长度，慎用！
 !! 参考链接
 * [[C/C++踩坑记录】memset(...)初始化二维数组的注意事项——CSDN|https://blog.csdn.net/weixin_42430021/article/details/121775402?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-121775402-blog-79415324.pc_relevant_antiscanv2&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-121775402-blog-79415324.pc_relevant_antiscanv2&utm_relevant_index=1]]
 * [[C语言二维数组的定义、初始化、赋值|http://c.biancheng.net/view/1829.html?msclkid=4518f91dcea211ec805006b159fb4230]]
+
+[[【C++の相关概念】静态数组[]和动态数组new的区别——CSDN|https://blog.csdn.net/weixin_45005811/article/details/114828494?msclkid=bcf523adcea511eca5f3953dcbdde609]]
