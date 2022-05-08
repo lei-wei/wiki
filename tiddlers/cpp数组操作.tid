@@ -1,0 +1,66 @@
+created: 20220508074523922
+creator: 胖虎
+modified: 20220508075955245
+modifier: 胖虎
+tags: 数组 memset
+title: cpp数组操作
+tmap.id: 0813cff0-11d6-4ac2-b198-9486da2b0556
+type: text/vnd.tiddlywiki
+
+
+
+!! 动态数组，使用指针
+数组长度不可变，要一开始就规定数组大小，很不方便，因此有动态数组的方法
+
+
+
+
+!! 多维数组初始化
+
+二维数组可以看作一维数组的嵌套，的初始化可以按行分段赋值，也可按行连续赋值。以下两种结果完全相同。
+
+```cpp
+int a[5][3]={ {80,75,92}, {61,65,71}, {59,63,70}, {85,87,90}, {76,77,85} };
+int a[5][3]={80, 75, 92, 61, 65, 71, 59, 63, 70, 85, 87, 90, 76, 77, 85};
+```
+
+!!! 用`for`循环以此赋值
+
+
+```cpp
+for (int i=0; i<n; ++i) for (int j=0; j<m; ++j) A[i][j]=0;
+```
+
+
+!!! 用`memset`函数赋初值
+
+
+首先简单介绍下memset()，它在string.h中，函数原型和解释如下：
+
+```cpp
+void *memset( void *buffer, int ch, size_t count );
+```
+
+函数解释：拷贝`ch`到`buffer`从头开始的`count`个字符里, 并返回buffer指针。
+
+注意！该函数是对从buffer首地址开始的一段连续的、字节数为count的内存进行整体赋值。
+
+我们回想一下C/C++中的二维数组，它是以行序为主方式进行存储的。而内存单元构成的存储空间是一个一维的线性空间，这意味二维数组的数据是一行接一行地存储的。
+
+
+
+因此，方法二的函数功能可以描述为：将二维数组A的前n*m个元素置零，对比问题需求：“将A的n × m n\times mn×m子块置零”，可知以上两者并不等价，因为A的n × m n\times mn×m子块元素按行序往往不连续。
+
+```cpp
+int a[10][10];
+memset(a,0,sizeof(a));		//二维整型数组
+
+char a[10][10];
+memset(a,'#',sizeof(a));	//二维字符型数组
+
+memset(A, 0, sizeof(int)*n*m);	//人为指定赋值的长度，慎用！
+```
+
+!! 参考链接
+* [[C/C++踩坑记录】memset(...)初始化二维数组的注意事项——CSDN|https://blog.csdn.net/weixin_42430021/article/details/121775402?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-121775402-blog-79415324.pc_relevant_antiscanv2&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-121775402-blog-79415324.pc_relevant_antiscanv2&utm_relevant_index=1]]
+* [[C语言二维数组的定义、初始化、赋值|http://c.biancheng.net/view/1829.html?msclkid=4518f91dcea211ec805006b159fb4230]]

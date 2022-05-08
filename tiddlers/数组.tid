@@ -1,6 +1,6 @@
 created: 20211207043655456
 creator: 胖虎
-modified: 20211207044643685
+modified: 20220508080022298
 modifier: 胖虎
 tags: 数据结构
 title: 数组
@@ -24,3 +24,5 @@ array[4] = 2;
 ```
 
 可变数组`vector`，基于数组和扩容机制实现。
+
+<<list-links "[tag[数组]sort[title]]">>
