@@ -1,6 +1,6 @@
 created: 20220508050421644
 creator: 胖虎
-modified: 20220508052303321
+modified: 20220508053200018
 modifier: 胖虎
 tags: concepts
 title: 虚函数
@@ -54,3 +54,6 @@ int main(void)
     return 0;
 }
 ```
+
+!! 参考资料
+* [[C++ 虚函数和纯虚函数的区别——菜鸟教程|https://www.runoob.com/w3cnote/cpp-virtual-functions.html]]
